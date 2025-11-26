@@ -73,7 +73,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry;
+import io.flutter.plugin.common.Plugintry;
 
 public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler, EventChannel.StreamHandler, PluginRegistry.ActivityResultListener {
 
@@ -153,16 +153,16 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         Log.d(LIBRARY_NAME, String.format("FFmpegKitFlutterPlugin created %s.", this));
     }
 
-    @SuppressWarnings("deprecation")
-    public static void registerWith(final io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
-        final Context context = (registrar.activity() != null) ? registrar.activity() : registrar.context();
-        if (context == null) {
-            Log.w(LIBRARY_NAME, "FFmpegKitFlutterPlugin can not be registered without a context.");
-            return;
-        }
-        FFmpegKitFlutterPlugin plugin = new FFmpegKitFlutterPlugin();
-        plugin.init(registrar.messenger(), context, registrar.activity(), registrar, null);
-    }
+    // @SuppressWarnings("deprecation")
+    // public static void registerWith(final io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
+    //     final Context context = (registrar.activity() != null) ? registrar.activity() : registrar.context();
+    //     if (context == null) {
+    //         Log.w(LIBRARY_NAME, "FFmpegKitFlutterPlugin can not be registered without a context.");
+    //         return;
+    //     }
+    //     FFmpegKitFlutterPlugin plugin = new FFmpegKitFlutterPlugin();
+    //     plugin.init(registrar.messenger(), context, registrar.activity(), registrar, null);
+    // }
 
     protected void registerGlobalCallbacks() {
         FFmpegKitConfig.enableFFmpegSessionCompleteCallback(this::emitSession);
